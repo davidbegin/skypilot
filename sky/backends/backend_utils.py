@@ -1850,12 +1850,12 @@ def _update_cluster_status_no_lock(
             ray_cluster_up = True
 
         # For non-spot clusters: If ray status shows all nodes are healthy, it
-        # is safe to set the status to UP as starting ray is the final step of
+        # is safe to set the status to UP as starting Ray is the final step of
         # sky launch.
         #
         # For spot clusters: the above can be unsafe because the Ray cluster
         # may remain healthy for a while before the cloud completely preempts
-        # the VMs. Thus, we ddditionally query the VM state from the cloud
+        # the VMs. Thus, we Additionally query the VM state from the cloud
         # provider.
         if ray_cluster_up and not use_spot:
             record['status'] = global_user_state.ClusterStatus.UP
